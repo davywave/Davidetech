@@ -621,3 +621,41 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+.social-media {
+  display: flex;
+  justify-content: center; /* Center the icons */
+  gap: 15px; /* Add space between icons */
+  margin: 20px 0; /* Adjust margin */
+}
+
+.social-icon {
+  text-decoration: none;
+  color: #fff; /* Icon color */
+  font-size: 24px; /* Icon size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #333; /* Background color for icons */
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.social-icon:hover {
+  transform: scale(1.1); /* Slightly enlarge icon on hover */
+  background-color: #f39c12; /* Change background color on hover */
+}
+
+.social-icon i {
+  pointer-events: none; /* Disable pointer events on the icon itself */
+}
+footer {
+  background: #222;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer .social-media {
+  margin-top: 10px;
+}
