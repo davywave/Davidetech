@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="favicon_io (1).ico/android-chrome-512x512.png">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <script src="script.js"></script> 
+  <script>
+  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn');
+  const carousel = document.querySelector('.projects-carousel');
+
+  prevBtn.addEventListener('click', () => {
+    carousel.scrollBy({
+      left: -300,
+      behavior: 'smooth'
+    });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    carousel.scrollBy({
+      left: 300,
+      behavior: 'smooth'
+    });
+  });
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Contact Us | Davidetech>
+  <meta name="description" content="Get in touch with Davidetech. Contact us for services, inquiries, or projects. Find our phone number, email, location, and more.">
+  <meta name="keywords" content="contact Davidetech, Lendex services, contact page, location, phone number, email">
+  <meta name="author" content="Davidetech">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Social Media Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact Us | Lendex">
+  <meta property="og:description" content="Get in touch with Lendex. Contact us for services, inquiries, or projects. Find our phone number, email, location, and more.">
+  <meta property="og:image" content="https://davidetech/cloud.jpg"> <!-- Replace with an actual image URL -->
+  <meta property="og:url" content="https://example.com/contact.html">
+  <meta property="og:site_name" content="Lendex">
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact Us | Davidetech">
+  <meta name="twitter:description" content="Get in touch with Lendex. Contact us for services, inquiries, or projects.">
+  <meta name="twitter:image" content="https://x.com/davywaves"> <!-- Replace with an actual image URL -->
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://davidetech.com",
+    "@type": "Organization",
+    "name": "Lendex",
+    "url": "https://davidetech.com",
+    "logo": "https://example.com/images/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+0123456789",
+      "email": "demo@example.com",
+      "contactType": "Customer Service",
+      "areaServed": "Global",
+      "availableLanguage": "English"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Damboa Road Maiduguri",
+      "addressLocality": "Maiduguri",
+      "addressRegion": "VIC",
+      "postalCode": "3000",
+      "addressCountry": "Nigeria"
+    },
+    "sameAs": [
+      "https://facebook.com/Ayodele David",
+      "https://twitter.com/davywaves",
+      "https://instagram.com/Heisdave"
+    ]
+  }
+  </script>
+
+
+
+
+  <title>Davidetech</title>
+  <link rel="stylesheet" href="styles.css">
+  <header class="header">
+    <div class="logo">Davidetech</div>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#service">Service</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a link href="contact.html"><button class="hire-me">Hire Me</button></a>
+    <div class="hamburger-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+  
+  <button id="backToTop" title="Go to top">↑</button>
+
+  <main>
+    <!-- Intro Section -->
+    <section id="home" class="intro-section" class="fade-in">
+      <div class="intro-text">
+        <h1>Hi i'm Ayodele David </h1>
+        <p>A Web designer/developer specialised in blog websites and E-commerce websites.</p>
+        
+        <div class="actions">
+          <a link href="DeivCV.pdf"><button class="get-resume">Get Resume</button></a>
+          <a link href="https://youtube.com"><button class="watch-video">Watch Video</button></a>
+        </div>
+      </div>
+     
+       
+       </div>
+    </section>
+
+    <!-- Service Section -->
+    <section id="service" class="service-section">
+      <h2>Service Provide For My Clients.</h2>
+      <div class="services">
+        <div class="service-card">
+          <div class="icon">🔧</div>
+          <h3>UI/UX Design</h3>
+          <ul>
+            <li>Landing Pages</li>
+            <li>User Flow</li>
+            <li>Wireframing</li>
+            <li>Prototyping</li>
+            <li>Mobile App Design</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="icon">💻</div>
+          <h3>Development</h3>
+          <ul>
+            <li>HTML/CSS</li>
+            <li>JavaScript</li>
+            <li>Animation</li>
+            <li>WordPress</li>
+            <li>React</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="icon">🎨</div>
+          <h3>Illustration</h3>
+          <ul>
+            <li>Character Design</li>
+            <li>Icon Set</li>
+            <li>Illustration Guide</li>
+            <li>Illustration Set</li>
+            <li>Motion Graphic</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="projects-section" id="projects">
+      <h2 class="section-title">My Complete Projects</h2>
+      <div class="projects-carousel">
+        <div class="project-card">
+          <a link href="https://davywave.github.io/Wondera/"><img src="blog_03.jpg" alt="Givest Project" class="project-image"></a>
+          <h3 class="project-title">Book publishing website</h3>
+        </div>
+        <div class="project-card">
+          <a link href="https://techpvlse.info/">
+            <img src="cloud.jpg" alt="Musion Project" class="project-image"></a>
+          <h3 class="project-title">A tech-blog website</h3>
+        </div>
+        <div class="project-card">
+          <a link href="https://davidetech.com">
+            <img src="event 1.jpg" alt="Seolly Project" class="project-image"></a>
+          <h3 class="project-title">Portfolio website</h3>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-btn prev-btn">&laquo;</button>
+        <button class="carousel-btn next-btn">&raquo;</button>
+      </div>
+    </section>
+    <section class="testimonial-section">
+      <div class="testimonial-header">
+        <span>|| Testimonial</span>
+        <h2>Satisfied Clients Say</h2>
+      </div>
+      <div class="testimonial-container">
+        <div class="testimonial-card">
+          <blockquote>
+            <span class="quote-icon">“</span>
+            Great team! They are super flexible, responsive, and detailed. NP group helped us launch an entirely new website - their module system is amazing. As someone who is not an expert in managing a website I am glad I can rely on NP group to help me and give advice on best practices. Would highly recommend!
+          </blockquote>
+          <div class="testimonial-info">
+            <h4>Victor Shallangwa</h4>
+            <p>CEO, Teen Deev</p>
+            <div class="stars">
+              ★★★★☆
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <blockquote>
+            <span class="quote-icon">“</span>
+            I would highly recommend Davidetech-- the team was responsive, reliable, and flexible to meet our needs. The project went by smoothly and according to plan, exceeding expectations. They were a pleasure to work with from beginning to end, making themselves available for questions and follow ups even after project completion.  
+          </blockquote>
+          <div class="testimonial-info">
+            <h4>Raleigh Friend</h4>
+            <p>CEO, Sealy</p>
+            <div class="stars">
+              ★★★★☆
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-navigation">
+        <button class="nav-button">«</button>
+        <button class="nav-button">»</button>
+      </div>
+    </section>
+    
+  </main>
+</body>
+</html>
