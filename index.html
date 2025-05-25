@@ -1,245 +1,809 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davidetch Portfolio</title>
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --secondary-gold: #b8941f;
+            --tertiary-gold: #8b7355;
+            --dark-bg: #2c2c2c;
+            --darker-bg: #1a1a1a;
+            --text-light: #b8b8b8;
+            --text-white: #ffffff;
+        }
 
-  <link rel="icon" type="image/png" href="android-chrome-512x512.png">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-  <script src="script.js"></script> 
-  <script>
-  const prevBtn = document.querySelector('.prev-btn');
-  const nextBtn = document.querySelector('.next-btn');
-  const carousel = document.querySelector('.projects-carousel');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  prevBtn.addEventListener('click', () => {
-    carousel.scrollBy({
-      left: -300,
-      behavior: 'smooth'
-    });
-  });
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+            color: var(--text-white);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-  nextBtn.addEventListener('click', () => {
-    carousel.scrollBy({
-      left: 300,
-      behavior: 'smooth'
-    });
-  });
-</script>
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="title" content="Contact Us | Davidetech>
-  <meta name="description" content="Get in touch with Davidetech. Contact us for services, inquiries, or projects. Find our phone number, email, location, and more.">
-  <meta name="keywords" content="contact Davidetech, Lendex services, contact page, location, phone number, email">
-  <meta name="author" content="Davidetech">
-  <meta name="robots" content="index, follow">
+        /* Navigation */
+        .nav-menu {
+            position: fixed;
+            top: 20px;
+            left: 100px;
+            z-index: 1000;
+            display: flex;
+            gap: 30px;
+        }
 
-  <!-- Open Graph / Social Media Metadata -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Contact Us | Lendex">
-  <meta property="og:description" content="Get in touch with Lendex. Contact us for services, inquiries, or projects. Find our phone number, email, location, and more.">
-  <meta property="og:image" content="https://davidetech/cloud.jpg"> <!-- Replace with an actual image URL -->
-  <meta property="og:url" content="https://example.com/contact.html">
-  <meta property="og:site_name" content="Lendex">
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+        }
 
-  <!-- Twitter Card Metadata -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact Us | Davidetech">
-  <meta name="twitter:description" content="Get in touch with Lendex. Contact us for services, inquiries, or projects.">
-  <meta name="twitter:image" content="https://x.com/davywaves"> <!-- Replace with an actual image URL -->
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-gold);
+            border-bottom-color: var(--primary-gold);
+        }
 
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://davidetech.com",
-    "@type": "Organization",
-    "name": "Lendex",
-    "url": "https://davidetech.com",
-    "logo": "https://example.com/images/logo.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+0123456789",
-      "email": "demo@example.com",
-      "contactType": "Customer Service",
-      "areaServed": "Global",
-      "availableLanguage": "English"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Damboa Road Maiduguri",
-      "addressLocality": "Maiduguri",
-      "addressRegion": "VIC",
-      "postalCode": "3000",
-      "addressCountry": "Nigeria"
-    },
-    "sameAs": [
-      "https://facebook.com/Ayodele David",
-      "https://twitter.com/davywaves",
-      "https://instagram.com/Heisdave"
-    ]
-  }
-  </script>
+        /* Left Sidebar */
+        .sidebar {
+            width: 80px;
+            background: linear-gradient(180deg, var(--primary-gold) 0%, var(--secondary-gold) 50%, var(--tertiary-gold) 100%);
+            position: relative;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+        }
 
+        .sidebar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 60px 40px;
+            border-color: transparent transparent var(--dark-bg) transparent;
+        }
 
+        .logo {
+            padding: 20px;
+            text-align: center;
+        }
 
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--dark-bg);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-gold);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
 
-  <title>Davidetech</title>
-  <link rel="stylesheet" href="styles.css">
-  <header class="header">
-    <div class="logo">Davidetech</div>
-    <nav class="nav">
-      <ul class="nav-list">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#service">Service</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+        .logo-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 100px;
+            z-index: 1000;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--primary-gold);
+            border-radius: 20px;
+            padding: 8px 16px;
+            color: var(--primary-gold);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 12px;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(212, 175, 55, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 80px 80px 60px;
+            position: relative;
+        }
+
+        /* Page Sections */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Home Section */
+        .home-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .content-left {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .welcome-title {
+            font-size: 72px;
+            font-weight: 300;
+            letter-spacing: -2px;
+            margin-bottom: 40px;
+            line-height: 1.1;
+        }
+
+        .description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .highlight-bar {
+            width: 4px;
+            height: 60px;
+            background: var(--primary-gold);
+            margin: 30px 0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: 2px solid var(--primary-gold);
+            background: transparent;
+            color: var(--primary-gold);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary-gold);
+            color: var(--dark-bg);
+        }
+
+        .btn-primary {
+            background: var(--primary-gold);
+            color: var(--dark-bg);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--primary-gold);
+        }
+
+        /* Projects Section */
+        .projects-section {
+            width: 300px;
+            margin-left: 60px;
+        }
+
+        .projects-title {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: var(--text-white);
+        }
+
+        .projects-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-gold);
+            margin-top: 8px;
+        }
+
+        .project-list {
+            list-style: none;
+        }
+
+        .project-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-item:hover {
+            border-left-color: var(--primary-gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .project-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            display: block;
+        }
+
+        .project-item:hover .project-link {
+            color: var(--primary-gold);
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: var(--text-white);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-category {
+            background: rgba(212, 175, 55, 0.05);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-gold);
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            color: var(--text-light);
+            margin-bottom: 8px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: '▸';
+            color: var(--primary-gold);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            background: rgba(212, 175, 55, 0.05);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-gold);
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 4px;
+            color: var(--text-white);
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Top Right Icons */
+        .top-icons {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .icon:hover {
+            opacity: 1;
+            color: var(--primary-gold);
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            font-size: 12px;
+            color: #666;
+            z-index: 1000;
+        }
+
+        /* Particles Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--primary-gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(212, 175, 55, 0.3);
+            border-top: 3px solid var(--primary-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                left: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .main-content {
+                padding: 100px 30px 60px;
+            }
+
+            .home-section {
+                flex-direction: column;
+            }
+
+            .projects-section {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 40px;
+            }
+
+            .welcome-title {
+                font-size: 48px;
+            }
+
+            .sidebar {
+                width: 60px;
+            }
+
+            .theme-toggle {
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-menu">
+        <a href="#" class="nav-link active" data-page="home">Home</a>
+        <a href="#" class="nav-link" data-page="about">About</a>
+        <a href="#" class="nav-link" data-page="projects">Projects</a>
+        <a href="#" class="nav-link" data-page="contact">Contact</a>
     </nav>
-    
-    <div class="hamburger-menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </header>
-  
-  <button id="backToTop" title="Go to top">↑</button>
 
-  <main>
-    <!-- Intro Section -->
-    <section id="home" class="intro-section" class="fade-in">
-      <div class="intro-text">
-        <h1>Hi i'm Ayodele David </h1>
-        <p>A Web designer/developer specialised in blog websites and E-commerce websites.</p>
-        
-        <div class="actions">
-          <a link href="DeivCV.pdf"><button class="get-resume">Get Resume</button></a>
-          <a link href="https://youtube.com"><button class="watch-video">Watch Video</button></a>
-        </div>
-      </div>
-     
-       
-       </div>
-    </section>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">🌙 Dark Mode</div>
 
-    <!-- Service Section -->
-    <section id="service" class="service-section">
-      <h2>Service Provide For My Clients.</h2>
-      <div class="services">
-        <div class="service-card">
-          <div class="icon">🔧</div>
-          <h3>UI/UX Design</h3>
-          <ul>
-            <li>Landing Pages</li>
-            <li>User Flow</li>
-            <li>Wireframing</li>
-            <li>Prototyping</li>
-            <li>Mobile App Design</li>
-          </ul>
-        </div>
-        <div class="service-card">
-          <div class="icon">💻</div>
-          <h3>Development</h3>
-          <ul>
-            <li>HTML/CSS</li>
-            <li>JavaScript</li>
-            <li>Animation</li>
-            <li>WordPress</li>
-            <li>React</li>
-          </ul>
-        </div>
-        <div class="service-card">
-          <div class="icon">🎨</div>
-          <h3>Illustration</h3>
-          <ul>
-            <li>Character Design</li>
-            <li>Icon Set</li>
-            <li>Illustration Guide</li>
-            <li>Illustration Set</li>
-            <li>Motion Graphic</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <section class="projects-section" id="projects">
-      <h2 class="section-title">My Complete Projects</h2>
-      <div class="projects-carousel">
-        <div class="project-card">
-          <a link href="https://davywave.github.io/Wonted/"><img src="blog_03.jpg" alt="Givest Project" class="project-image"></a>
-          <h3 class="project-title">Book publishing website</h3>
-        </div>
-        <div class="project-card">
-          <a link href="https://techpvlse.info/">
-            <img src="cloud.jpg" alt="Musion Project" class="project-image"></a>
-          <h3 class="project-title">A tech-blog website</h3>
-        </div>
-        <div class="project-card">
-          <a link href="https://davidetech.com">
-            <img src="event 1.jpg" alt="Seolly Project" class="project-image"></a>
-          <h3 class="project-title">Portfolio website</h3>
-        </div>
-      </div>
-      <div class="carousel-nav">
-        <button class="carousel-btn prev-btn">&laquo;</button>
-        <button class="carousel-btn next-btn">&raquo;</button>
-      </div>
-    </section>
-    <section class="testimonial-section">
-      <div class="testimonial-header">
-        <span>|| Testimonial</span>
-        <h2>Satisfied Clients Say</h2>
-      </div>
-      <div class="testimonial-container">
-        <div class="testimonial-card">
-          <blockquote>
-            <span class="quote-icon">“</span>
-            Great team! They are super flexible, responsive, and detailed. NP group helped us launch an entirely new website - their module system is amazing. As someone who is not an expert in managing a website I am glad I can rely on NP group to help me and give advice on best practices. Would highly recommend!
-          </blockquote>
-          <div class="testimonial-info">
-            <h4>Victor Shallangwa</h4>
-            <p>CEO, Teen Deev</p>
-            <div class="stars">
-              ★★★★☆
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-icon" onclick="showPage('home')">D</div>
             </div>
-          </div>
         </div>
-        <div class="testimonial-card">
-          <blockquote>
-            <span class="quote-icon">“</span>
-            I would highly recommend Davidetech-- the team was responsive, reliable, and flexible to meet our needs. The project went by smoothly and according to plan, exceeding expectations. They were a pleasure to work with from beginning to end, making themselves available for questions and follow ups even after project completion.  
-          </blockquote>
-          <div class="testimonial-info">
-            <h4>Raleigh Friend</h4>
-            <p>CEO, Sealy</p>
-            <div class="stars">
-              ★★★★☆
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Home Section -->
+            <div class="page-section active" id="home">
+                <div class="home-section">
+                    <div class="content-left">
+                        <h1 class="welcome-title">Welcome.</h1>
+                        <div class="highlight-bar"></div>
+                        <p class="description">
+                            My name is David, I'm a front-end developer based in Torquay, Devon, UK. I have developed many types of front-ends from well-known DJ applications to Ecommerce booking platforms.
+                        </p>
+                        <p class="description">
+                            I'm passionate about cutting-edge, pixel-perfect, beautiful interfaces and intuitively implemented UX.
+                        </p>
+                        <div class="cta-buttons">
+                            <a href="#" class="btn btn-primary" onclick="showPage('projects')">View My Work</a>
+                            <a href="#" class="btn" onclick="showPage('contact')">Get In Touch</a>
+                        </div>
+                    </div>
+
+                    <div class="projects-section">
+                        <h2 class="projects-title">Latest Projects</h2>
+                        <ul class="project-list">
+                            <li class="project-item">
+                                <a href="#" class="project-link">Decomposer</a>
+                            </li>
+                            <li class="project-item">
+                                <a href="#" class="project-link">Cookiemunch</a>
+                            </li>
+                            <li class="project-item">
+                                <a href="#" class="project-link">Screen time converter</a>
+                            </li>
+                            <li class="project-item">
+                                <a href="#" class="project-link">LED multi</a>
+                            </li>
+                            <li class="project-item">
+                                <a href="#" class="project-link">inline.svg</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <!-- About Section -->
+            <div class="page-section" id="about">
+                <div class="about-content">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="highlight-bar"></div>
+                    <p class="description">
+                        I'm a passionate front-end developer with over 5 years of experience creating beautiful, functional, and user-friendly web applications. My journey in web development started with a curiosity about how websites work, and has evolved into a deep love for crafting exceptional digital experiences.
+                    </p>
+                    <p class="description">
+                        Based in the beautiful coastal town of Torquay, Devon, I draw inspiration from both the natural world around me and the cutting-edge technologies that shape our digital landscape. I specialize in modern JavaScript frameworks, responsive design, and creating interfaces that not only look stunning but also provide intuitive user experiences.
+                    </p>
+
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Frontend Technologies</h3>
+                            <ul class="skill-list">
+                                <li>HTML5 & CSS3</li>
+                                <li>JavaScript (ES6+)</li>
+                                <li>React & Vue.js</li>
+                                <li>TypeScript</li>
+                                <li>Sass/SCSS</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Tools & Frameworks</h3>
+                            <ul class="skill-list">
+                                <li>Node.js & npm</li>
+                                <li>Webpack & Vite</li>
+                                <li>Git & GitHub</li>
+                                <li>Figma & Adobe XD</li>
+                                <li>Bootstrap & Tailwind</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Backend & Database</h3>
+                            <ul class="skill-list">
+                                <li>PHP & Laravel</li>
+                                <li>MySQL & PostgreSQL</li>
+                                <li>REST APIs</li>
+                                <li>WordPress</li>
+                                <li>Server Management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Section -->
+            <div class="page-section" id="projects">
+                <h2 class="section-title">My Projects</h2>
+                <div class="highlight-bar"></div>
+                <p class="description">
+                    Here are some of the projects I've worked on recently. Each project represents a unique challenge and showcases different aspects of my development skills.
+                </p>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Decomposer</h3>
+                        <p style="color: var(--text-light); margin-bottom: 16px;">A music analysis tool built with React and Web Audio API</p>
+                        <ul class="skill-list">
+                            <li>React & TypeScript</li>
+                            <li>Web Audio API</li>
+                            <li>Real-time visualization</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Cookiemunch</h3>
+                        <p style="color: var(--text-light); margin-bottom: 16px;">GDPR-compliant cookie management solution</p>
+                        <ul class="skill-list">
+                            <li>Vanilla JavaScript</li>
+                            <li>GDPR Compliance</li>
+                            <li>Lightweight & Fast</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Screen Time Converter</h3>
+                        <p style="color: var(--text-light); margin-bottom: 16px;">Time tracking and productivity analysis tool</p>
+                        <ul class="skill-list">
+                            <li>Vue.js & Chart.js</li>
+                            <li>Data Visualization</li>
+                            <li>Progressive Web App</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="page-section" id="contact">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="highlight-bar"></div>
+                <p class="description">
+                    I'm always interested in hearing about new projects and opportunities. Whether you're looking to build something new or improve an existing application, I'd love to discuss how we can work together.
+                </p>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
         </div>
-      </div>
-      <div class="testimonial-navigation">
-        <button class="nav-button">«</button>
-        <button class="nav-button">»</button>
-      </div>
-    </section>
- 
-    <div class="social-media">
-      <a href="https://www.facebook.com/ target="_blank" class="social-icon">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://www.twitter.com/davywaves" target="_blank" class="social-icon">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://www.instagram.com" target="_blank" class="social-icon">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.linkedin.com" target="_blank" class="social-icon">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
+
+        <!-- Top Right Icons -->
+        <div class="top-icons">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm-1-7.9c-.7 0-1.3-.6-1.3-1.3S7.3 6.5 8 6.5s1.3.6 1.3 1.3-.6 1.2-1.3 1.2zM17 17h-2v-3.4c0-.8 0-1.8-1.1-1.8s-1.3.9-1.3 1.8V17h-2v-7h1.9v1c.3-.6 1.1-1.2 2.2-1.2 2.4 0 2.8 1.6 2.8 3.6V17z"/>
+            </svg>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            ©2022 davidetch.com
+        </div>
     </div>
-    
-    
-  </main>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Navigation
+        function showPage(pageId) {
+            // Hide all sections
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`[data-page="${pageId}"]`).classList.add('active');
+        }
+
+        // Nav link event listeners
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
+                showPage(pageId);
+            });
+        });
+
+        // Contact form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission
+            alert('Thank you for your message! I\'ll get back to you soon.');
+            this.reset();
+        });
+
+        // Theme toggle
+        let isDark = true;
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            const root = document.documentElement;
+            
+            if (isDark) {
+                // Light theme
+                root.style.setProperty('--dark-bg', '#f5f5f5');
+                root.style.setProperty('--darker-bg', '#ffffff');
+                root.style.setProperty('--text-white', '#333333');
+                root.style.setProperty('--text-light', '#666666');
+                this.innerHTML = '☀️ Light Mode';
+            } else {
+                // Dark theme
+                root.style.setProperty('--dark-bg', '#2c2c2c');
+                root.style.setProperty('--darker-bg', '#1a1a1a');
+                root.style.setProperty('--text-white', '#ffffff');
+                root.style.setProperty('--text-light', '#b8b8b8');
+                this.innerHTML = '🌙 Dark Mode';
+            }
+            
+            isDark = !isDark;
+        });
+
+        // Particles animation
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        createParticles();
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add hover effects to project items
+        document.querySelectorAll('.project-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(10px)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+    </script>
 </body>
 </html>
